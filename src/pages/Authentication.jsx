@@ -108,6 +108,8 @@ const RegisterPage = () => {
     phone: "",
     car_no: "",
     car_model: "",
+    chassis_no: "",
+    engine_no: ""
   });
   const navigate = useNavigate();
   const { user, setUser, isLogged, setIsLogged } = useContext(authContext);
@@ -134,10 +136,11 @@ const RegisterPage = () => {
             ...user,
             email: driver.email,
             name: driver.name,
-            phone: driver.phone,
-            car_no: driver.car_no,
-            car_model: driver.car_model,
-            photoURL: driver.photoURL
+            // phone: driver.phone,
+            // car_no: driver.car_no,
+            // car_model: driver.car_model,
+            // photoURL: driver.photoURL,
+            // rc_no: driver.rc_no
           });
           navigate("/home");
           return;
@@ -212,6 +215,26 @@ const RegisterPage = () => {
             name="car_model"
             id="car_model"
             value={driver.car_model}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div>
+          <label htmlFor="car_model">Chassis Number : </label>
+          <input
+            type="text"
+            name="chassis_no"
+            id="chassis_no"
+            value={driver.chassis_no}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div>
+          <label htmlFor="car_model">Engine Number : </label>
+          <input
+            type="text"
+            name="engine_no"
+            id="engine_no"
+            value={driver.engine_no}
             onChange={(e) => handleChange(e)}
           />
         </div>
